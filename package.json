@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "nodemon index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -18,10 +19,16 @@
   },
   "homepage": "https://github.com/Build-Week-Co-make-5/Back-End#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "env": "0.0.2",
     "express": "^4.17.1",
+    "helmet": "^3.21.3",
+    "jsonwebtoken": "^8.5.1",
     "knex": "^0.20.10",
     "pg": "^7.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
