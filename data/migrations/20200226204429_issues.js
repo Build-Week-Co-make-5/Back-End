@@ -14,7 +14,7 @@ exports.up = function(knex) {
     })
     .createTable("issues", issues => {
       issues.increments();
-      issues.datetime("date").notNullable();
+      issues.timestamps(false,true);
       issues.string("issue_name", 255).notNullable();
       issues.string("issue_location", 255).notNullable();
       issues.string("category", 255).notNullable();
@@ -24,7 +24,6 @@ exports.up = function(knex) {
       issues
         .integer("user_id")
         .unsigned()
-        .notNullable()
         .references("id")
         .inTable("users")
         .onDelete("CASCADE")
