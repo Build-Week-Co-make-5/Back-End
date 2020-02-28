@@ -5,5 +5,5 @@ module.exports = {
 };
 
 function find() {
-  return db("issues").select('*');
+  return db("issues");
 }
