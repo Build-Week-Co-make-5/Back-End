@@ -3,18 +3,14 @@ exports.up = function(knex) {
     .createTable("users", users => {
       users.increments();
       users
-        .string("username", 30)
+        .string("username", 128)
         .notNullable()
         .unique();
-      users.string("password", 255).notNullable();
-      users.string("name", 255).notNullable();
-      users.string("last_name", 255).notNullable();
-      users.string("address", 255);
-      users.integer("phone_number");
+      users.string("password", 128).notNullable();
     })
     .createTable("issues", issues => {
       issues.increments();
-      issues.timestamps(false,true);
+      issues.timestamps(false, true);
       issues.string("issue_name", 255).notNullable();
       issues.string("issue_location", 255).notNullable();
       issues.string("category", 255).notNullable();
@@ -53,8 +49,8 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-    return knex.schema
-    .dropTableIfExists('upvotes')
-    .dropTableIfExists('issues')
-    .dropTableIfExists('users')
+  return knex.schema
+    .dropTableIfExists("upvotes")
+    .dropTableIfExists("issues")
+    .dropTableIfExists("users");
 };
