@@ -15,14 +15,15 @@ function findBy(filter) {
     return db('users').where(filter);
 }
 
-async function add(user) {
-    const [id] = await db('users').insert(user);
-
-    return findById(id);
+function add(user) {
+    console.log("IN MODEL USER:", user)
+    return db('users').insert(user)
+     
 }
 
 function findById(id) {
+    console.log("IN FIND BY ID:", id)
     return db('users')
-    .where({id})
+    .where("id", id)
     .first();
 }
