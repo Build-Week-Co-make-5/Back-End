@@ -16,13 +16,13 @@ function findBy(filter) {
 }
 
 function add(user) {
-    console.log("IN MODEL USER:", user)
+    // console.log("IN MODEL USER:", user)
     return db('users').insert(user)
      
 }
 
 function findById(id) {
-    console.log("IN FIND BY ID:", id)
+    // console.log("IN FIND BY ID:", id)
     return db('users')
     .where("id", id)
     .first();
