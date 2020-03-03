@@ -5,21 +5,21 @@
 
 ### POST api/auth/register
 
-Username and password required in body:
+Email and password required in body:
 
 ```
 {
-	username: "lambda",
+	email: "lambda@lambda.com",
 	password: "1234"
 }
 ```
 ### POST api/auth/login
 
-Username and password required:
+Email and password required:
 
 ```
 {
-	username: "lambda",
+	email: "lambda@lambda.com",
 	password: "1234"
 }
 ```

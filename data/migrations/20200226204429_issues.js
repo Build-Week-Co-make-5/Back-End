@@ -3,7 +3,7 @@ exports.up = function(knex) {
     .createTable("users", users => {
       users.increments();
       users
-        .string("email", 128)
+        .varchar("email", 302)
         .notNullable()
         .unique();
       users.string("password", 128).notNullable();
