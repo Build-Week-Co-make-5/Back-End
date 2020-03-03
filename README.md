@@ -5,31 +5,33 @@
 
 ### POST api/auth/register
 
-Email and password required in body:
+Email and password & full name required in body:
 
 ```
 {
-	email: "lambda@lambda.com",
-	password: "1234"
+	"email": "juan@lambda.com",
+	"password": "1234",
+	"full name": "Juan Aleman"
 }
 ```
 ### POST api/auth/login
 
-Email and password required:
+Email and password & full name required in body:
 
 ```
 {
-	email: "lambda@lambda.com",
-	password: "1234"
+	"email": "juan@lambda.com",
+	"password": "1234",
+	"full name": "Juan Aleman"
 }
 ```
 
-###### *Returns message, username, and a JWT. Store this in the frontend client for use on authorization header. The token is set to expire in 5 days.*
+###### *Returns message, email, and a JWT. Store this in the frontend client for use on authorization header. The token is set to expire in 5 days.*
 
 ```
 {
-    "username": "test app 1",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjcsInVzZXJuYW1lIjoidGVzdCBhcHAgMSIsImlhdCI6MTU4MzE5Mjc0OSwiZXhwIjoxNTgzNjI0NzQ5fQ.0i37Rp44HA5CgPBqvP6dO4od1xEYb--yidJyf9ig9g4"
+    "email": "juan@lambda.com",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjMsImVtYWlsIjoianVhbkBsYW1iZGEuY29tIiwiaWF0IjoxNTgzMjA3NDIwLCJleHAiOjE1ODM2Mzk0MjB9.XSJG7PS1udtlYg9GSHRA1jiZVI6q3h4QZV86t7vILH0"
 }
 ```
 
