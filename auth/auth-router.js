@@ -25,19 +25,19 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
     let {
-        username,
+        email,
         password
     } = req.body;
 
     Users.findBy({
-            username
+            email
         })
         .first()
         .then(user => {
             if (user && bcrypt.compareSync(password, user.password)) {
                 const token = genToken(user);
                 res.status(200).json({
-                    username: user.username,
+                    email: user.email,
                     token: token
                 });
             } else {
@@ -51,7 +51,7 @@ router.post('/login', (req, res) => {
 function genToken(user) {
     const payload = {
         userid: user.id,
-        username: user.username
+        email: user.email
     };
     const options = {
         expiresIn: '5d'
