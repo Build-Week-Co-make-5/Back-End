@@ -60,7 +60,25 @@ router.delete("/:id", (req, res) => {
       }
     })
     .catch(err => {
-      res.status(500).json({ message: "Failed to delete issue" });
+      res.status(500).json({ message: "Failed to delete issue!" });
+    });
+});
+
+// Updating an Issue
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+  const changes = req.body;
+
+  Issues.update(changes, id)
+    .then(issue => {
+      if (issue) {
+        res.json({ update: issue });
+      } else {
+        res.status(404).json({ message: "Could not find issue with given id" });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ message: "Failed to update issue!" });
     });
 });
 
