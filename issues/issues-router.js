@@ -47,4 +47,21 @@ router.post("/", restricted, (req, res) => {
     });
 });
 
+// Deleting an Issues
+router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+
+  Issues.remove(id)
+    .then(count => {
+      if (count) {
+        res.json({ removed: count });
+      } else {
+        res.status(404).json({ message: "Could not find issue with given id" });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ message: "Failed to delete issue" });
+    });
+});
+
 module.exports = router;
