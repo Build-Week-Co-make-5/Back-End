@@ -20,13 +20,15 @@ exports.up = function(knex) {
       issues.string("priority");
       issues.text("imgURL");
       issues.string("issue_details");
-      issues
-        .integer("user_id")
-        .unsigned()
-        .references("id")
-        .inTable("users")
-        .onDelete("CASCADE")
-        .onUpdate("CASCADE");
+      
+      // **Will add for stretch to attach an issue to a user
+      // issues
+      //   .integer("user_id")
+      //   .unsigned()
+      //   .references("id")
+      //   .inTable("users")
+      //   .onDelete("CASCADE")
+      //   .onUpdate("CASCADE");
     })
 
     .createTable("upvotes", upvotes => {
