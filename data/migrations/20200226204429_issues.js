@@ -18,7 +18,7 @@ exports.up = function(knex) {
       issues.string("issue_location", 255).notNullable();
       issues.string("category", 255).notNullable();
       issues.string("priority");
-      issues.text("imgURL");
+      issues.text("imgurl");
       issues.string("issue_details");
       
       // **Will add for stretch to attach an issue to a user
