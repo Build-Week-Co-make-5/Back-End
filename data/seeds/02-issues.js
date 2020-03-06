@@ -6,7 +6,7 @@ exports.seed = function(knex) {
       issue_location: "8207 High Ridge Circle",
       category: "roads",
       priority: "high",
-      imgURL: "https://unsplash.com/photos/-OOiAy2lBZc",
+      imgURL: "../img/pothole.jpg",
       issue_details:
         "I asked Domino's to come fix it but they said they're not doing that in our state yet."
     },
