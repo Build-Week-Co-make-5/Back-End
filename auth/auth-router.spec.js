@@ -1,10 +1,24 @@
-const authRouter = require('./auth-router.js');
 const request = require('supertest');
+const server = require('../api/server.js');
 
-describe('auth-router.js', () =>{
+const db = require('../data/db.config.js');
 
-    test('should be the testing environment', () =>{
-        expect(process.env.DB_ENV).toBe('testing');
+
+
+describe('auth-router.js testing', () =>{
+
+    describe('registering a user', () => {
+        it('should return 201 OK', () => {
+            return db('users')
+            .then( () => {
+                return request(server)
+                .post('api/auth/register')
+                .send({ email: 'TestEmail@gmail.com', password: 'test'});
+            })
+            .then( res => {
+                expect(res.status).toBe(201);
+            });
+        });
     })
 
 
