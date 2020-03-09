@@ -26,19 +26,22 @@ describe("auth-router testing", () => {
     describe("logging in a user", () => {
       it("returns 200 OK", async () => {
         const user = {
-            email: "aleman@gmail.com",
-            password: "test",
-            full_name: "Aleman test"
-          };
-          const userLog = {
-            email: "aleman@gmail.com",
-            password: "test",
-          };
-        await request(server).post('/api/auth/register').send(user)
-        const res = await request(server).post('/api/auth/login').send(userLog)
-        expect(res.status).toBe(200)
+          email: "aleman@gmail.com",
+          password: "test",
+          full_name: "Aleman test"
+        };
+        const userLog = {
+          email: "aleman@gmail.com",
+          password: "test"
+        };
+        await request(server)
+          .post("/api/auth/register")
+          .send(user);
+        const res = await request(server)
+          .post("/api/auth/login")
+          .send(userLog);
+        expect(res.status).toBe(200);
       });
     });
   });
-
 });
